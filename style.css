@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0f0f0f;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar {
+  padding: 6px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  cursor: pointer;
+}
+.search {
+  display: flex;
+  overflow: hidden;
+  width: 700px;
+  /* border: 1px solid #303030; */
+}
+
+.search > button {
+  border: none;
+  padding: 6px;
+  border-left: 1px solid #303030;
+  background-color: #303030;
+  width: 10%;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.search > button > img {
+  background-color: #303030;
+}
+
+.search > button:hover {
+  cursor: pointer;
+}
+
+.search > input {
+  padding: 6px 10px;
+  border-radius: 20px 0px 0px 20px;
+  border: none;
+  display: flex;
+  width: 500px;
+  border: 1px solid #303030;
+  color: white;
+}
+
+.search > img {
+  background-color: #303030;
+  margin-left: 15px;
+  border-radius: 50%;
+  padding: 11px;
+  cursor: pointer;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  cursor: pointer;
+}
+
+.proPic {
+  border-radius: 50%;
+}
+
+/* navbar end *********************************************/
+
+.main-body {
+  border: 1px solid black;
+  display: flex;
+  padding: 10px;
+}
+
+.sidebar {
+  flex: 1;
+  display: flex;
+}
+
+.videos {
+  display: flex;
+  align-items: start;
+  overflow-y: auto;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 20px;
+  flex: 5;
+  height: 1380px;
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 350px;
+  width: 340px;
+}
+
+.img > img {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.channel {
+  display: flex;
+  gap: 10px;
+  height: 80px;
+}
+.channel > img {
+  border-radius: 50%;
+  height: 40px;
+  padding: 5px;
+}
+
+#title {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 5px;
+  overflow: hidden; /* Hide any overflowing text */
+  text-overflow: ellipsis; /* Display ellipsis (...) for overflow */
+  display: -webkit-box; /* Set display to a webkit-specific box */
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical; /* Display lines vertically */
+}
+
+.video-card :hover {
+  cursor: pointer;
+  white-space: normal;
+}
+
+.chDsc {
+  color: #646464;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.chDsc-info {
+  display: flex;
+}
+
+.dot {
+  padding: 0px 2px;
+}
+
+#videoPlayer {
+  padding: 20px 30px 20px 80px;
+  width: 75vw;
+  height: 80vh;
+}
+
+#commentContainer {
+  width: 75vw;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px 20px 80px;
+  row-gap: 30px;
+}
+
+.comment {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  border: 1px solid #646464;
+  border-radius: 8px;
+}
+.comment>img {
+  border-radius: 50%;
+  height: 40px;
+}
+
+.co-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.co-div > b > span {
+  color: gray;
+  font-size: small;
+}
+.co-div-l {
+  display: flex;
+  gap: 10px;
+}
+
+.co-div-l>p {
+  padding: 10px 5px;
+  margin: 0;
+  font-size:medium;
+}
