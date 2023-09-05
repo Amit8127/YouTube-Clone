@@ -107,7 +107,7 @@ async function getVideoStatistics(videoId) {
 }
 
 async function fetchSearchResults(searchInput) {
-  const endPoint = `${baseUrl}/search?key=${apiKey}&q=${searchInput}&part=snippet&maxResults=5`;
+  const endPoint = `${baseUrl}/search?key=${apiKey}&q=${searchInput}&part=snippet&maxResults=20`;
 
   try {
     const responce = await fetch(endPoint);
