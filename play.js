@@ -1,6 +1,8 @@
-const apiKey = "AIzaSyCtTIBP0Jv-UlRfnu_Y9_Ia5IXD6rlriXI";
+const apiKey = "AIzaSyAA_pLBId-4ZtwfWNShpPC5DsFuQna38IA";
+// const apiKey = "AIzaSyCtTIBP0Jv-UlRfnu_Y9_Ia5IXD6rlriXI";
 const baseUrl = "https://www.googleapis.com/youtube/v3";
 const commentContainer = document.getElementById("commentContainer");
+const chD = document.getElementById("chD");
 
 window.addEventListener("load", () => {
   let videoId = document.cookie.split("=")[1];
@@ -10,8 +12,12 @@ window.addEventListener("load", () => {
       width: "100%",
       videoId: videoId,
     });
-
-    loadComments(videoId);
+    try {
+      chainnelDetails(videoId);
+      loadComments(videoId);
+    } catch (error) {
+      alert("Failed to load comments for ", videoId);
+    }
   }
 });
 
@@ -40,14 +46,30 @@ function calculateTheTimeGap(publishTime) {
   } else return `${Math.ceil(secondsGap / (60 * 60))-1} hrs ago`;
 }
 
+async function chainnelDetails(videoId) {
+  // https://www.googleapis.com/youtube/v3/videos?part=snippet&id=RDJcsmkH8DM&key=AIzaSyCtTIBP0Jv-UlRfnu_Y9_Ia5IXD6rlriXI
+  let endpoint = `${baseUrl}/videos?key=${apiKey}&id=${videoId}&part=snippet`;
+
+  const response = await fetch(endpoint);
+  const result = await response.json();
+  
+  console.log(result);
+  console.log(result.items[0].snippet.channelId);
+  console.log(result.items[0].snippet.channelTitle);
+
+  const h2 = document.createElement("h2");
+  h2.innerHTML = `${result.items[0].snippet.channelTitle}`;
+  chD.appendChild(h2);
+}
+
 async function loadComments(videoId) {
-  console.log(videoId);
   let endpoint = `${baseUrl}/commentThreads?key=${apiKey}&videoId=${videoId}&maxResults=10&part=snippet`;
 
   const response = await fetch(endpoint);
   const result = await response.json();
 
   result.items.forEach((item) => {
+
     const repliesCount = item.snippet.totalReplyCount;
     const {
       authorDisplayName,
@@ -75,3 +97,4 @@ async function loadComments(videoId) {
     commentContainer.appendChild(div);
   });
 }
+

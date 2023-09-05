@@ -1,4 +1,5 @@
-const apiKey = "AIzaSyCtTIBP0Jv-UlRfnu_Y9_Ia5IXD6rlriXI";
+const apiKey = "AIzaSyAA_pLBId-4ZtwfWNShpPC5DsFuQna38IA";
+// const apiKey = "AIzaSyCtTIBP0Jv-UlRfnu_Y9_Ia5IXD6rlriXI";
 const baseUrl = "https://www.googleapis.com/youtube/v3";
 
 const searchButton = document.getElementById("search-btn");
@@ -106,7 +107,7 @@ async function getVideoStatistics(videoId) {
 }
 
 async function fetchSearchResults(searchInput) {
-  const endPoint = `${baseUrl}/search?key=${apiKey}&q=${searchInput}&part=snippet&maxResults=20`;
+  const endPoint = `${baseUrl}/search?key=${apiKey}&q=${searchInput}&part=snippet&maxResults=5`;
 
   try {
     const responce = await fetch(endPoint);

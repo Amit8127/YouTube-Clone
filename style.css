@@ -177,7 +177,6 @@
   display: flex;
   padding: 10px;
   gap: 10px;
-  border: 1px solid #646464;
   border-radius: 8px;
 }
 .comment>img {
@@ -204,4 +203,10 @@
   padding: 10px 5px;
   margin: 0;
   font-size:medium;
+}
+
+#chD > h2 {
+  color: white;
+  font-size: larger;
+  padding-left: 80px;
 }
